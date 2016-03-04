@@ -13,8 +13,12 @@ class page_my extends Page {
 
 
         $g = $this->add('Grid');
+
         $g->setModel($this->app->auth->model->ref('Tweet'))
             ->setOrder('date desc')->setLimit(20);
+
+         // $g->setModel($this->app->auth->model->refFollowingTweets())
+         //     ->setOrder('date desc')->setLimit(20);
 
         $g->addClass('atk-push');
 

@@ -31,5 +31,11 @@ class Model_User extends SQL_Model {
         $this->add('dynamic_model/Controller_AutoCreator');
     }
 
+    function refFollowingTweets(){
+        $follower_ids = $this->ref('Following')->fieldQuery('user_id');
+        return $this->add('Model_Tweet')->addCondition('user_id','in',$follower_ids)->debug();
+
+    }
+
 
 }
