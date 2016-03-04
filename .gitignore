@@ -16,5 +16,4 @@ VERSION
 /index.php
 .idea
 .composer
-addons/
 /db/*
