@@ -17,7 +17,7 @@ class Admin extends App_Admin {
         $this->api->menu->addItem('Admin', 'admin');
 
         $item = $this->app->layout->user_menu
-            ->addItem(['Change Password', 'icon'=>'lock-open-alt']);
+            ->addItem(['Change Password', 'icon'=>'lock-open-alt'],'password');
 
         $this->app->layout->user_menu->add('Order')
             ->move($item, 'first')->now();

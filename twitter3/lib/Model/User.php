@@ -9,12 +9,15 @@ class Model_User extends SQL_Model {
         $this->addField('username');
         $this->addField('password')->type('password');
 
-        $this->addField('is_admin')->type('boolean');
+
+        $this->addField('is_admin')->type('boolean')->defaultValue(false);
         $this->addField('gender')->enum(['M','F']);
 
         $this->hasMany('Tweet');
         $this->hasMany('Follow','owner_id',null,'Following');
         $this->hasMany('Follow',null,      null,'Followers');
+
+
 
         $this->addExpression('tweets')->set(function($m){
             return $m->refSQL('Tweet')->count();
@@ -27,6 +30,16 @@ class Model_User extends SQL_Model {
         $this->addExpression('followers')->set(function($m){
             return $m->refSQL('Followers')->count();
         });
+
+
+
+        $v = $this->add('Controller_Validator');
+        $v
+          ->is('username|required|[a-z0-9_]?Must contain only lowercase letters')
+          ->on('beforeSave');
+
+
+
 
         $this->add('dynamic_model/Controller_AutoCreator');
     }
