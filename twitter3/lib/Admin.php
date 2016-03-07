@@ -13,6 +13,7 @@ class Admin extends App_Admin {
 
 
         $this->api->menu->addItem('Twitter', '/');
+        $this->api->menu->addItem('Signup', 'signup');
         $this->api->menu->addItem('My Tweets', 'my');
         $this->api->menu->addItem('Admin', 'admin');
 
