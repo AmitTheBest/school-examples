@@ -15,5 +15,11 @@ class Admin extends App_Admin {
         $this->api->menu->addItem('Twitter', '/');
         $this->api->menu->addItem('My Tweets', 'my');
         $this->api->menu->addItem('Admin', 'admin');
+
+        $item = $this->app->layout->user_menu
+            ->addItem(['Change Password', 'icon'=>'lock-open-alt']);
+
+        $this->app->layout->user_menu->add('Order')
+            ->move($item, 'first')->now();
     }
 }
