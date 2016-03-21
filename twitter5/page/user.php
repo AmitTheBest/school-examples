@@ -9,8 +9,11 @@ class page_user extends Page {
 
         $this->setModel('User')->load($this->app->stickyGET('id'));
 
-        $g = $this->add('Grid');
-        $g->setModel($this->model->ref('Tweet'))->setOrder('date desc')->setLimit(20)->debug();
+        //$g = $this->add('Grid');
+        $v = $this->add('View_TweetFeed');
+
+
+        $v->setModel($this->model->ref('Tweet'))->setOrder('date desc')->setLimit(20)->debug();
 
     }
 }

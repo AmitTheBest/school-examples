@@ -1,0 +1,16 @@
+<div id="{$_name}" class="atk-box atk-swatch-blue">
+    {rows}{row}
+    <div class="atk-row">
+        <div class="atk-cell atk-col-6">
+            <a href="{$user_url}">{$user}</a>: <a href="{$tweet_url}">{$message}</a><br/>
+            <i>Date: {$date}, Followers: {$followers}, Likes: {$likes}<!-- , {$random} --></i>
+        </div>
+        <div class="atk-cell atk-col-6 atk-align-right">
+            <a href="javascript:void(0)" data-id="{$id}" class="atk-button-small do-like"><span class="icon-thumbs-up"></span></a>
+        </div>
+    </div>
+    {/row}
+    {sep}<hr/>{/sep}
+
+    {/rows}
+</div>
